@@ -1,0 +1,38 @@
+# ---- dependencies ----
+node_modules/
+
+# ---- vercel ----
+.vercel/
+
+# ---- env & secrets (NEVER commit these) ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*credentials*.json
+*secret*.json
+secrets/
+credentials/
+
+# ---- logs ----
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# ---- os / editor ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# ---- build / cache ----
+.cache/
+dist/

@@ -1,0 +1,12 @@
+{
+  "name": "kislay-portfolio",
+  "version": "1.0.0",
+  "description": "Anime Cinematic 3D Portfolio — Kislay Choubey",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

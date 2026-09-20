@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kislay Choubey - Agentic AI Architect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-content">
+      <div class="loader-katana"><div class="loader-blade"></div></div>
+      <div class="loader-text">LOADING...</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Three.js background canvas -->
+  <div id="three-container"></div>
+
+  <!-- Video-style progress bar at bottom -->
+  <div id="video-bar">
+    <div id="video-fill"></div>
+    <div class="chapter-dots">
+      <span class="dot active" data-ch="1"></span>
+      <span class="dot" data-ch="2"></span>
+      <span class="dot" data-ch="3"></span>
+      <span class="dot" data-ch="4"></span>
+      <span class="dot" data-ch="5"></span>
+      <span class="dot" data-ch="6"></span>
+      <span class="dot" data-ch="7"></span>
+      <span class="dot" data-ch="8"></span>
+    </div>
+  </div>
+
+  <!-- Chapter indicator (top-right, shows current chapter name) -->
+  <div id="chapter-indicator">
+    <span class="ch-number">01</span>
+    <span class="ch-name">THE OPENING</span>
+  </div>
+
+  <!-- Floating icons -->
+  <div class="floating-icons">
+    <div class="floating-icon fi-1">⚔️</div>
+    <div class="floating-icon fi-2">🌸</div>
+    <div class="floating-icon fi-3">🔥</div>
+    <div class="floating-icon fi-4">💜</div>
+    <div class="floating-icon fi-5">⭐</div>
+    <div class="floating-icon fi-6">🌀</div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- THE SCROLL VIDEO - ALL CHAPTERS -->
+  <!-- ============================================ -->
+  <main id="scroll-video">
+
+    <!-- CHAPTER 1: THE OPENING (Katana Slash + Name Reveal) -->
+    <section id="ch-opening" class="chapter" data-chapter="1" data-title="THE OPENING">
+      <div class="ch-bg opening-bg"></div>
+      
+      <!-- Kanji that scales up and fades -->
+      <div class="opening-kanji">斬</div>
+      <div class="opening-kanji-sub">// SLASH</div>
+      
+      <!-- Slash lines that animate across screen -->
+      <div class="opening-slashes">
+        <div class="slash-line sl-1"></div>
+        <div class="slash-line sl-2"></div>
+        <div class="slash-line sl-3"></div>
+      </div>
+      
+      <!-- White flash layer -->
+      <div class="flash-layer"></div>
+      
+      <!-- Name reveal -->
+      <div class="opening-name">
+        <div class="name-pre">THE PORTFOLIO OF</div>
+        <h1 class="name-main" id="name-main">KISLAY CHOUBEY</h1>
+        <div class="name-post">AGENTIC AI ARCHITECT • MADHYA PRADESH 🇮🇳</div>
+      </div>
+      
+      <!-- Scroll prompt -->
+      <div class="scroll-prompt">
+        <div class="scroll-arrow"></div>
+        <span>SCROLL TO WATCH</span>
+      </div>
+    </section>
+
+    <!-- CHAPTER 2: TANJIRO — WATER BREATHING (Determination → Python Mastery) -->
+    <section id="ch-tanjiro" class="chapter character-chapter" data-chapter="2" data-title="WATER BREATHING" data-color="#00d2ff">
+      <div class="ch-bg tanjiro-bg"></div>
+      
+      <!-- Character Scene -->
+      <div class="character-scene">
+        <!-- Silhouette in sword-swing pose -->
+        <div class="char-figure tanjiro-figure">
+          <img src="images/tanjiro.jpg" alt="Tanjiro Kamado" class="figure-img">
+        </div>
+        
+        <!-- Move Effect: Water waves flowing -->
+        <div class="move-effect water-effect">
+          <div class="water-wave w1"></div>
+          <div class="water-wave w2"></div>
+          <div class="water-wave w3"></div>
+          <div class="water-splash"></div>
+        </div>
+        
+        <!-- Character Info -->
+        <div class="char-identity">
+          <div class="char-anime">DEMON SLAYER</div>
+          <h2 class="char-name">TANJIRO KAMADO</h2>
+          <div class="char-technique">WATER BREATHING — FIRST FORM</div>
+          <blockquote class="char-quote">"Work to improve yourself every single day."</blockquote>
+        </div>
+      </div>
+      
+      <!-- Kislay connection (fades in as you scroll further) -->
+      <div class="personal-connection">
+        <div class="connection-line"></div>
+        <div class="connection-trait">DETERMINATION</div>
+        <h3 class="connection-title">Like Tanjiro, I cut through complexity with precision</h3>
+        <p class="connection-text">Mastered <strong>Python</strong> from the ground up — not because it was easy, but because I refused to stop until every concept clicked. From basics to building advanced AI systems.</p>
+        <div class="connection-skill">
+          <span class="skill-label">PYTHON MASTERY</span>
+          <div class="skill-bar"><div class="skill-fill" data-value="95"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 3: GOJO — INFINITY (Vision → Agentic AI) -->
+    <section id="ch-gojo" class="chapter character-chapter" data-chapter="3" data-title="INFINITY" data-color="#a855f7">
+      <div class="ch-bg gojo-bg"></div>
+      
+      <div class="character-scene">
+        <div class="char-figure gojo-figure">
+          <img src="images/gojo.jpg" alt="Gojo Satoru" class="figure-img">
+        </div>
+        
+        <!-- Move Effect: Infinity sphere expanding -->
+        <div class="move-effect infinity-effect">
+          <div class="infinity-sphere"></div>
+          <div class="infinity-ring r1"></div>
+          <div class="infinity-ring r2"></div>
+          <div class="infinity-ring r3"></div>
+          <div class="hollow-purple"></div>
+        </div>
+        
+        <div class="char-identity">
+          <div class="char-anime">JUJUTSU KAISEN</div>
+          <h2 class="char-name">GOJO SATORU</h2>
+          <div class="char-technique">LIMITLESS — HOLLOW PURPLE</div>
+          <blockquote class="char-quote">"Throughout Heaven and Earth, I alone am the honored one."</blockquote>
+        </div>
+      </div>
+      
+      <div class="personal-connection">
+        <div class="connection-line"></div>
+        <div class="connection-trait">LIMITLESS VISION</div>
+        <h3 class="connection-title">Like Gojo, I see what others can't</h3>
+        <p class="connection-text">While my peers in 1st year college are just being introduced to LLMs, I've already built an <strong>Advanced Agentic AI</strong> that automates ANY task and runs completely on your local device. No cloud. No limits.</p>
+        <div class="connection-skill">
+          <span class="skill-label">AGENTIC AI ARCHITECTURE</span>
+          <div class="skill-bar"><div class="skill-fill" data-value="92"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 4: NARUTO — RASENGAN (Persistence → Never Giving Up) -->
+    <section id="ch-naruto" class="chapter character-chapter" data-chapter="4" data-title="RASENGAN" data-color="#ff6b35">
+      <div class="ch-bg naruto-bg"></div>
+      
+      <div class="character-scene">
+        <div class="char-figure naruto-figure">
+          <img src="images/naruto.jpg" alt="Naruto Uzumaki" class="figure-img">
+        </div>
+        
+        <!-- Move Effect: Rasengan spinning orb -->
+        <div class="move-effect rasengan-effect">
+          <div class="rasengan-orb">
+            <div class="rasengan-core"></div>
+            <div class="rasengan-ring rr1"></div>
+            <div class="rasengan-ring rr2"></div>
+          </div>
+          <div class="chakra-flame cf1"></div>
+          <div class="chakra-flame cf2"></div>
+          <div class="chakra-flame cf3"></div>
+        </div>
+        
+        <div class="char-identity">
+          <div class="char-anime">NARUTO</div>
+          <h2 class="char-name">NARUTO UZUMAKI</h2>
+          <div class="char-technique">RASENGAN — SAGE MODE</div>
+          <blockquote class="char-quote">"I never go back on my word. That is my ninja way!"</blockquote>
+        </div>
+      </div>
+      
+      <div class="personal-connection">
+        <div class="connection-line"></div>
+        <div class="connection-trait">RELENTLESS SPIRIT</div>
+        <h3 class="connection-title">Like Naruto, I never give up on my vision</h3>
+        <p class="connection-text">Being a <strong>1st year college student</strong> didn't stop me. While others wait to be taught, I taught myself. Vibe coding, AI architecture, bug fixing — all self-driven, all passion.</p>
+        <div class="connection-skill">
+          <span class="skill-label">VIBE CODING</span>
+          <div class="skill-bar"><div class="skill-fill" data-value="100"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 5: BORUTO — KARMA (Evolution → Next Generation) -->
+    <section id="ch-boruto" class="chapter character-chapter" data-chapter="5" data-title="KARMA SEAL" data-color="#3498db">
+      <div class="ch-bg boruto-bg"></div>
+      
+      <div class="character-scene">
+        <div class="char-figure boruto-figure">
+          <img src="images/boruto.jpg" alt="Boruto Uzumaki" class="figure-img">
+        </div>
+        
+        <!-- Move Effect: Karma lines spreading -->
+        <div class="move-effect karma-effect">
+          <div class="karma-line kl1"></div>
+          <div class="karma-line kl2"></div>
+          <div class="karma-line kl3"></div>
+          <div class="karma-line kl4"></div>
+          <div class="karma-diamond"></div>
+          <div class="karma-glow"></div>
+        </div>
+        
+        <div class="char-identity">
+          <div class="char-anime">BORUTO</div>
+          <h2 class="char-name">BORUTO UZUMAKI</h2>
+          <div class="char-technique">KARMA — ŌTSUTSUKI POWER</div>
+          <blockquote class="char-quote">"The new generation will always surpass the old."</blockquote>
+        </div>
+      </div>
+      
+      <div class="personal-connection">
+        <div class="connection-line"></div>
+        <div class="connection-trait">NEXT GENERATION</div>
+        <h3 class="connection-title">Like Boruto, I'm rewriting what's possible</h3>
+        <p class="connection-text">AI that runs <strong>100% locally on your device</strong>. No cloud dependency, no API costs, no privacy concerns. Just pure, autonomous intelligence built by someone who thinks different.</p>
+        <div class="connection-skill">
+          <span class="skill-label">LOCAL AI AUTOMATION</span>
+          <div class="skill-bar"><div class="skill-fill" data-value="90"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 6: ITADORI — CURSED ENERGY (Raw Power → Technical Mastery) -->
+    <section id="ch-itadori" class="chapter character-chapter" data-chapter="6" data-title="CURSED ENERGY" data-color="#e84393">
+      <div class="ch-bg itadori-bg"></div>
+      
+      <div class="character-scene">
+        <div class="char-figure itadori-figure">
+          <img src="images/itadori.jpg" alt="Yuji Itadori" class="figure-img">
+        </div>
+        
+        <!-- Move Effect: Cursed energy burst -->
+        <div class="move-effect cursed-effect">
+          <div class="cursed-aura"></div>
+          <div class="cursed-burst cb1"></div>
+          <div class="cursed-burst cb2"></div>
+          <div class="cursed-burst cb3"></div>
+          <div class="black-flash"></div>
+        </div>
+        
+        <div class="char-identity">
+          <div class="char-anime">JUJUTSU KAISEN</div>
+          <h2 class="char-name">YUJI ITADORI</h2>
+          <div class="char-technique">BLACK FLASH — DIVERGENT FIST</div>
+          <blockquote class="char-quote">"I don't want to regret the way I lived."</blockquote>
+        </div>
+      </div>
+      
+      <div class="personal-connection">
+        <div class="connection-line"></div>
+        <div class="connection-trait">RAW POWER</div>
+        <h3 class="connection-title">Like Itadori, I channel raw energy into precision</h3>
+        <p class="connection-text">Debugging isn't just finding errors — it's understanding the soul of the code. Expert-level <strong>bug fixing</strong> and <strong>full-stack AI development</strong>, turning chaos into clean architecture.</p>
+        <div class="connection-skill">
+          <span class="skill-label">BUG FIXING & DEBUGGING</span>
+          <div class="skill-bar"><div class="skill-fill" data-value="93"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 7: THE PORTFOLIO (Game-like exploration) -->
+    <section id="ch-portfolio" class="chapter" data-chapter="7" data-title="BATTLE RECORDS">
+      <div class="ch-bg portfolio-bg"></div>
+      
+      <div class="portfolio-header">
+        <h2 class="portfolio-title">ACHIEVEMENTS UNLOCKED</h2>
+        <p class="portfolio-sub">Click cards to inspect</p>
+      </div>
+      
+      <div class="achievements-grid">
+        <div class="ach-card" data-index="0">
+          <div class="ach-icon">🐍</div>
+          <h3>Python Mastery</h3>
+          <p>From basics to advanced AI — complete Python expertise.</p>
+          <div class="ach-rank">RANK S</div>
+        </div>
+        <div class="ach-card" data-index="1">
+          <div class="ach-icon">🤖</div>
+          <h3>Agentic AI System</h3>
+          <p>Built an advanced AI that runs locally and automates anything.</p>
+          <div class="ach-rank">RANK SSS</div>
+        </div>
+        <div class="ach-card" data-index="2">
+          <div class="ach-icon">🧩</div>
+          <h3>Expert Bug Fixer</h3>
+          <p>Debugged countless codebases with surgical precision.</p>
+          <div class="ach-rank">RANK A</div>
+        </div>
+        <div class="ach-card" data-index="3">
+          <div class="ach-icon">💻</div>
+          <h3>Vibe Coding Pioneer</h3>
+          <p>Where creativity meets code — coding by intuition.</p>
+          <div class="ach-rank">RANK S</div>
+        </div>
+        <div class="ach-card" data-index="4">
+          <div class="ach-icon">🎓</div>
+          <h3>1st Year Prodigy</h3>
+          <p>Already architecting advanced AI as a first-year student.</p>
+          <div class="ach-rank">RANK S</div>
+        </div>
+        <div class="ach-card" data-index="5">
+          <div class="ach-icon">🔧</div>
+          <h3>Full-Stack AI Dev</h3>
+          <p>End-to-end AI development, from models to deployment.</p>
+          <div class="ach-rank">RANK A</div>
+        </div>
+      </div>
+      
+      <!-- About section within portfolio -->
+      <div class="about-block">
+        <h2 class="about-title">WHO IS KISLAY CHOUBEY?</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>A <strong>1st year college student</strong> from <strong>Madhya Pradesh, India</strong> who isn't waiting to be taught — he's building the future of AI.</p>
+            <p>While classmates are just being introduced to LLMs, Kislay has already built an <strong>advanced Agentic AI</strong> system that automates any task and runs entirely on your local device.</p>
+            <p>Philosophy: <strong>Vibe Coding</strong> — where creativity meets technical mastery. Code isn't just logic, it's art.</p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item"><span class="stat-label">Python</span><div class="stat-bar"><div class="stat-fill" data-value="95"></div></div></div>
+            <div class="stat-item"><span class="stat-label">AI / ML</span><div class="stat-bar"><div class="stat-fill" data-value="90"></div></div></div>
+            <div class="stat-item"><span class="stat-label">Debugging</span><div class="stat-bar"><div class="stat-fill" data-value="93"></div></div></div>
+            <div class="stat-item"><span class="stat-label">Vibe Coding</span><div class="stat-bar"><div class="stat-fill" data-value="100"></div></div></div>
+            <div class="stat-item"><span class="stat-label">Automation</span><div class="stat-bar"><div class="stat-fill" data-value="88"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 8: FINALE -->
+    <section id="ch-finale" class="chapter" data-chapter="8" data-title="FINAL CHAPTER">
+      <div class="ch-bg finale-bg"></div>
+      <h2 class="finale-title">THE JOURNEY HAS JUST BEGUN...</h2>
+      <p class="finale-sub">Want to collaborate or talk about AI?</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><span>⚡</span> GitHub</a>
+        <a href="#" class="social-link"><span>🔗</span> LinkedIn</a>
+        <a href="#" class="social-link"><span>📧</span> Email</a>
+      </div>
+      <button id="replay-btn">🔄 REPLAY FROM START</button>
+      <div class="footer">Built with ⚔️ by Kislay Choubey</div>
+    </section>
+
+  </main>
+
+  <!-- Click particle container -->
+  <div id="click-fx"></div>
+
+  <script type="module" src="js/app.js"></script>
+  <script src="js/character-anim.js"></script>
+  <script src="js/signature-moves.js"></script>
+  <script src="js/cursor-tsukuyomi.js?v=4"></script>
+</body>
+</html>
