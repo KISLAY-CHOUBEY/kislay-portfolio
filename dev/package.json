@@ -1,8 +1,7 @@
 {
   "name": "kislay-portfolio",
   "version": "1.0.0",
-  "description": "Anime Cinematic 3D Portfolio — Kislay Choubey",
-  "main": "server.js",
+  "description": "Anime Cinematic 3D Portfolio — Kislay Choubey (local dev server only)",
   "scripts": {
     "start": "node server.js"
   },
