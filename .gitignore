@@ -1,5 +1,9 @@
 # ---- dependencies ----
 node_modules/
+dev/node_modules/
+
+# ---- local-only dev server (kept off git/vercel so root stays pure static) ----
+dev/
 
 # ---- vercel ----
 .vercel/
